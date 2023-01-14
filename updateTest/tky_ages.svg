@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"  standalone="no"?>
+<svg 
+ width="720" height="300"
+ viewBox="0 0 720 300"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+<title>Gnuplot</title>
+<desc>Produced by GNUPLOT 5.4 patchlevel 2 </desc>
+
+<g id="gnuplot_canvas">
+
+<rect x="0" y="0" width="720" height="300" fill="none"/>
+<defs>
+
+	<circle id='gpDot' r='0.5' stroke-width='0.5' stroke='currentColor'/>
+	<path id='gpPt0' stroke-width='0.222' stroke='currentColor' d='M-1,0 h2 M0,-1 v2'/>
+	<path id='gpPt1' stroke-width='0.222' stroke='currentColor' d='M-1,-1 L1,1 M1,-1 L-1,1'/>
+	<path id='gpPt2' stroke-width='0.222' stroke='currentColor' d='M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1'/>
+	<rect id='gpPt3' stroke-width='0.222' stroke='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<rect id='gpPt4' stroke-width='0.222' stroke='currentColor' fill='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<circle id='gpPt5' stroke-width='0.222' stroke='currentColor' cx='0' cy='0' r='1'/>
+	<use xlink:href='#gpPt5' id='gpPt6' fill='currentColor' stroke='none'/>
+	<path id='gpPt7' stroke-width='0.222' stroke='currentColor' d='M0,-1.33 L-1.33,0.67 L1.33,0.67 z'/>
+	<use xlink:href='#gpPt7' id='gpPt8' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt7' id='gpPt9' stroke='currentColor' transform='rotate(180)'/>
+	<use xlink:href='#gpPt9' id='gpPt10' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt3' id='gpPt11' stroke='currentColor' transform='rotate(45)'/>
+	<use xlink:href='#gpPt11' id='gpPt12' fill='currentColor' stroke='none'/>
+	<path id='gpPt13' stroke-width='0.222' stroke='currentColor' d='M0,1.330 L1.265,0.411 L0.782,-1.067 L-0.782,-1.076 L-1.265,0.411 z'/>
+	<use xlink:href='#gpPt13' id='gpPt14' fill='currentColor' stroke='none'/>
+	<filter id='textbox' filterUnits='objectBoundingBox' x='0' y='0' height='1' width='1'>
+	  <feFlood flood-color='white' flood-opacity='1' result='bgnd'/>
+	  <feComposite in='SourceGraphic' in2='bgnd' operator='atop'/>
+	</filter>
+	<filter id='greybox' filterUnits='objectBoundingBox' x='0' y='0' height='1' width='1'>
+	  <feFlood flood-color='lightgrey' flood-opacity='1' result='grey'/>
+	  <feComposite in='SourceGraphic' in2='grey' operator='atop'/>
+	</filter>
+</defs>
+<g fill="none" color="white" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,242.40 L98.31,242.40 M534.80,242.40 L525.80,242.40  '/>	<g transform="translate(80.92,246.30)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 0</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,217.47 L98.31,217.47 M534.80,217.47 L525.80,217.47  '/>	<g transform="translate(80.92,221.37)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 5000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,192.54 L98.31,192.54 M534.80,192.54 L525.80,192.54  '/>	<g transform="translate(80.92,196.44)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 10000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,167.60 L98.31,167.60 M534.80,167.60 L525.80,167.60  '/>	<g transform="translate(80.92,171.50)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 15000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,142.67 L98.31,142.67 M534.80,142.67 L525.80,142.67  '/>	<g transform="translate(80.92,146.57)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 20000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,117.74 L98.31,117.74 M534.80,117.74 L525.80,117.74  '/>	<g transform="translate(80.92,121.64)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 25000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,92.81 L98.31,92.81 M534.80,92.81 L525.80,92.81  '/>	<g transform="translate(80.92,96.71)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 30000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,67.87 L98.31,67.87 M534.80,67.87 L525.80,67.87  '/>	<g transform="translate(80.92,71.77)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 35000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,42.94 L98.31,42.94 M534.80,42.94 L525.80,42.94  '/>	<g transform="translate(80.92,46.84)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 40000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,18.01 L98.31,18.01 M534.80,18.01 L525.80,18.01  '/>	<g transform="translate(80.92,21.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" > 45000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M133.86,242.40 L133.86,233.40 M133.86,18.01 L133.86,27.01  '/>	<g transform="translate(133.86,264.30)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="middle">
+		<text><tspan font-family="Arial" >07/10/22</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M222.96,242.40 L222.96,233.40 M222.96,18.01 L222.96,27.01  '/>	<g transform="translate(222.96,264.30)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="middle">
+		<text><tspan font-family="Arial" >07/16/22</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M312.06,242.40 L312.06,233.40 M312.06,18.01 L312.06,27.01  '/>	<g transform="translate(312.06,264.30)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="middle">
+		<text><tspan font-family="Arial" >07/22/22</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M401.15,242.40 L401.15,233.40 M401.15,18.01 L401.15,27.01  '/>	<g transform="translate(401.15,264.30)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="middle">
+		<text><tspan font-family="Arial" >07/28/22</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M490.25,242.40 L490.25,233.40 M490.25,18.01 L490.25,27.01  '/>	<g transform="translate(490.25,264.30)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="middle">
+		<text><tspan font-family="Arial" >08/03/22</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,18.01 L89.31,242.40 L534.80,242.40 L534.80,18.01 L89.31,18.01 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(19.18,130.21) rotate(270)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="middle">
+		<text><tspan font-family="Arial" >人</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(312.05,291.30)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="middle">
+		<text><tspan font-family="Arial" >東京都 新規陽性患者数年代別 報告日毎推移</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+	<g id="gnuplot_plot_1" ><title>100歳以上</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,30.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >100歳以上</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 127, 237)' points = '660.65,31.51 703.21,31.51 703.21,22.51 660.65,22.51 '/>
+	</g>
+	<path stroke='rgb(255, 127, 237)'  d='M660.65,31.51 L703.21,31.51 L703.21,22.51 L660.65,22.51 L660.65,31.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 127, 237)' points = '89.31,198.65 89.31,198.65 104.16,193.96 119.01,195.12 133.86,211.34 148.71,185.02 163.56,158.25 178.41,159.34 193.26,147.38 208.11,148.10 222.96,153.71 237.81,179.12 252.66,187.53 267.51,140.76 282.36,83.58 297.21,68.06
+312.06,79.45 326.90,102.31 341.75,130.83 356.60,85.11 371.45,97.76 386.30,41.07 401.15,58.94 416.00,75.69 430.85,85.19 445.70,133.01 460.55,88.67 475.40,48.30 490.25,66.27 505.10,54.12 519.95,87.99 534.80,138.98
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_2" ><title>90代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,48.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >90代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(226, 127, 255)' points = '660.65,49.51 703.21,49.51 703.21,40.51 660.65,40.51 '/>
+	</g>
+	<path stroke='rgb(226, 127, 255)'  d='M660.65,49.51 L703.21,49.51 L703.21,40.51 L660.65,40.51 L660.65,49.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(226, 127, 255)' points = '89.31,198.66 89.31,198.66 104.16,193.97 119.01,195.13 133.86,211.35 148.71,185.04 163.56,158.26 178.41,159.35 193.26,147.41 208.11,148.13 222.96,153.75 237.81,179.16 252.66,187.54 267.51,140.82 282.36,83.63 297.21,68.14
+312.06,79.49 326.90,102.37 341.75,130.85 356.60,85.19 371.45,97.81 386.30,41.14 401.15,59.02 416.00,75.79 430.85,85.30 445.70,133.05 460.55,88.76 475.40,48.40 490.25,66.33 505.10,54.22 519.95,88.09 534.80,139.03
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_3" ><title>80代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,66.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >80代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(179, 127, 255)' points = '660.65,67.51 703.21,67.51 703.21,58.51 660.65,58.51 '/>
+	</g>
+	<path stroke='rgb(179, 127, 255)'  d='M660.65,67.51 L703.21,67.51 L703.21,58.51 L660.65,58.51 L660.65,67.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(179, 127, 255)' points = '89.31,198.89 89.31,198.89 104.16,194.23 119.01,195.39 133.86,211.65 148.71,185.40 163.56,158.73 178.41,159.68 193.26,147.85 208.11,148.77 222.96,154.35 237.81,179.65 252.66,188.05 267.51,141.78 282.36,84.64 297.21,69.36
+312.06,80.65 326.90,103.30 341.75,131.62 356.60,86.77 371.45,99.14 386.30,42.73 401.15,60.69 416.00,77.34 430.85,86.78 445.70,134.12 460.55,90.47 475.40,50.41 490.25,67.93 505.10,56.16 519.95,89.83 534.80,140.09
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_4" ><title>70代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,84.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >70代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(133, 127, 255)' points = '660.65,85.51 703.21,85.51 703.21,76.51 660.65,76.51 '/>
+	</g>
+	<path stroke='rgb(133, 127, 255)'  d='M660.65,85.51 L703.21,85.51 L703.21,76.51 L660.65,76.51 L660.65,85.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(133, 127, 255)' points = '89.31,199.68 89.31,199.68 104.16,195.01 119.01,196.21 133.86,212.23 148.71,186.50 163.56,160.00 178.41,160.94 193.26,149.65 208.11,150.57 222.96,156.20 237.81,180.91 252.66,189.24 267.51,144.29 282.36,87.74 297.21,72.74
+312.06,83.75 326.90,106.30 341.75,133.91 356.60,90.49 371.45,102.56 386.30,47.28 401.15,64.70 416.00,81.55 430.85,90.64 445.70,136.67 460.55,95.06 475.40,55.69 490.25,72.38 505.10,60.69 519.95,94.19 534.80,142.71
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_5" ><title>60代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,102.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >60代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(127, 255, 220)' points = '660.65,103.51 703.21,103.51 703.21,94.51 660.65,94.51 '/>
+	</g>
+	<path stroke='rgb(127, 255, 220)'  d='M660.65,103.51 L703.21,103.51 L703.21,94.51 L660.65,94.51 L660.65,103.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(127, 255, 220)' points = '89.31,200.96 89.31,200.96 104.16,196.58 119.01,197.83 133.86,212.95 148.71,188.40 163.56,162.41 178.41,163.39 193.26,152.82 208.11,153.71 222.96,159.52 237.81,182.98 252.66,191.02 267.51,147.92 282.36,92.73 297.21,78.19
+312.06,89.19 326.90,111.46 341.75,137.33 356.60,96.04 371.45,107.83 386.30,54.49 401.15,71.55 416.00,87.63 430.85,97.13 445.70,140.63 460.55,101.56 475.40,63.94 490.25,79.43 505.10,67.61 519.95,100.69 534.80,147.29
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_6" ><title>50代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,120.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >50代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(150, 255, 127)' points = '660.65,121.51 703.21,121.51 703.21,112.51 660.65,112.51 '/>
+	</g>
+	<path stroke='rgb(150, 255, 127)'  d='M660.65,121.51 L703.21,121.51 L703.21,112.51 L660.65,112.51 L660.65,121.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(150, 255, 127)' points = '89.31,203.06 89.31,203.06 104.16,199.03 119.01,200.42 133.86,214.53 148.71,191.46 163.56,166.77 178.41,167.72 193.26,157.72 208.11,158.63 222.96,164.54 237.81,186.17 252.66,193.79 267.51,153.04 282.36,100.68 297.21,86.93
+312.06,97.78 326.90,119.62 341.75,143.07 356.60,104.81 371.45,115.94 386.30,65.87 401.15,82.03 416.00,97.37 430.85,107.15 445.70,147.03 460.55,111.17 475.40,76.13 490.25,89.91 505.10,78.87 519.95,110.52 534.80,154.09
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_7" ><title>40代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,138.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >40代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(197, 255, 127)' points = '660.65,139.51 703.21,139.51 703.21,130.51 660.65,130.51 '/>
+	</g>
+	<path stroke='rgb(197, 255, 127)'  d='M660.65,139.51 L703.21,139.51 L703.21,130.51 L660.65,130.51 L660.65,139.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(197, 255, 127)' points = '89.31,207.75 89.31,207.75 104.16,204.56 119.01,205.64 133.86,218.10 148.71,198.13 163.56,176.27 178.41,177.26 193.26,169.51 208.11,169.41 222.96,175.12 237.81,192.90 252.66,200.09 267.51,165.25 282.36,119.23 297.21,106.83
+312.06,116.87 326.90,137.46 341.75,155.98 356.60,124.74 371.45,134.22 386.30,92.10 401.15,105.82 416.00,118.55 430.85,127.80 445.70,160.98 460.55,132.34 475.40,103.06 490.25,113.25 505.10,103.08 519.95,130.65 534.80,167.72
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_8" ><title>30代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,156.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >30代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(243, 255, 127)' points = '660.65,157.51 703.21,157.51 703.21,148.51 660.65,148.51 '/>
+	</g>
+	<path stroke='rgb(243, 255, 127)'  d='M660.65,157.51 L703.21,157.51 L703.21,148.51 L660.65,148.51 L660.65,157.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(243, 255, 127)' points = '89.31,214.83 89.31,214.83 104.16,212.21 119.01,212.84 133.86,222.93 148.71,207.24 163.56,189.59 178.41,190.83 193.26,184.47 208.11,184.50 222.96,188.48 237.81,202.61 252.66,208.48 267.51,182.17 282.36,145.90 297.21,136.20
+312.06,144.33 326.90,160.13 341.75,174.30 356.60,151.74 371.45,158.82 386.30,127.28 401.15,137.83 416.00,147.22 430.85,154.78 445.70,180.07 460.55,159.30 475.40,137.86 490.25,144.81 505.10,135.50 519.95,157.52 534.80,186.33
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_9" ><title>20代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,174.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >20代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 220, 127)' points = '660.65,175.51 703.21,175.51 703.21,166.51 660.65,166.51 '/>
+	</g>
+	<path stroke='rgb(255, 220, 127)'  d='M660.65,175.51 L703.21,175.51 L703.21,166.51 L660.65,166.51 L660.65,175.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 220, 127)' points = '89.31,222.78 89.31,222.78 104.16,220.89 119.01,220.97 133.86,228.36 148.71,216.98 163.56,203.94 178.41,205.55 193.26,200.32 208.11,200.23 222.96,202.68 237.81,212.36 252.66,217.27 267.51,198.62 282.36,172.51 297.21,166.74
+312.06,172.37 326.90,184.16 341.75,192.86 356.60,178.03 371.45,183.26 386.30,161.99 401.15,170.06 416.00,176.10 430.85,181.21 445.70,197.92 460.55,185.50 475.40,171.14 490.25,176.08 505.10,168.83 519.95,184.30 534.80,204.46
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_10" ><title>10代</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,192.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >10代</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 173, 127)' points = '660.65,193.51 703.21,193.51 703.21,184.51 660.65,184.51 '/>
+	</g>
+	<path stroke='rgb(255, 173, 127)'  d='M660.65,193.51 L703.21,193.51 L703.21,184.51 L660.65,184.51 L660.65,193.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 173, 127)' points = '89.31,233.20 89.31,233.20 104.16,231.50 119.01,230.72 133.86,234.72 148.71,228.50 163.56,221.84 178.41,224.50 193.26,221.63 208.11,220.05 222.96,219.92 237.81,224.21 252.66,227.69 267.51,216.86 282.36,202.69 297.21,202.79
+312.06,206.88 326.90,212.58 341.75,216.44 356.60,207.29 371.45,210.85 386.30,202.12 401.15,206.91 416.00,209.00 430.85,210.44 445.70,218.66 460.55,212.22 475.40,204.44 490.25,209.05 505.10,208.34 519.95,213.80 534.80,223.53
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_11" ><title>10歳未満</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(652.26,210.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >10歳未満</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 127, 127)' points = '660.65,211.51 703.21,211.51 703.21,202.51 660.65,202.51 '/>
+	</g>
+	<path stroke='rgb(255, 127, 127)'  d='M660.65,211.51 L703.21,211.51 L703.21,202.51 L660.65,202.51 L660.65,211.51 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(255, 127, 127)' points = '89.31,238.23 89.31,238.23 104.16,237.11 119.01,236.97 133.86,238.79 148.71,235.87 163.56,232.80 178.41,234.45 193.26,233.56 208.11,232.62 222.96,232.68 237.81,234.21 252.66,235.99 267.51,231.15 282.36,224.87 297.21,224.82
+312.06,227.10 326.90,229.46 341.75,230.86 356.60,226.54 371.45,227.26 386.30,223.66 401.15,226.08 416.00,226.67 430.85,227.19 445.70,230.64 460.55,227.64 475.40,222.67 490.25,225.70 505.10,225.55 519.95,228.01 534.80,232.63
+534.80,242.40 89.31,242.40 '/>
+	</g>
+</g>
+	</g>
+<g fill="none" color="white" stroke="rgb(255, 127, 127)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="black" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M89.31,18.01 L89.31,242.40 L534.80,242.40 L534.80,18.01 L89.31,18.01 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+</g>
+</svg>
+

@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>SimEpidemic noGUITest: Control</title>
+<script type="text/javascript" src="control.js"></script>
+</head>
+<body onload="setup()">
+<h1>Interactive Control &amp; Monitoring</h1>
+<h2>control</h2>
+	<form method="get" target="controlResult">
+	<input type="submit" value="開始" formaction="/start">
+	<input type="submit" value="一歩" formaction="/step">
+	<input type="submit" value="一時停止" formaction="/stop">
+	<input type="submit" value="初期化" formaction="/reset">
+	&nbsp; 速度制限: <input type="number" name="maxSPS"
+		step="0.1" value="0" style="width:10ex"> ステップ/秒
+	</form>
+	応答: <iframe id="controlResult" name="controlResult" height=20></iframe><br/>
+	<button id="startMonitor" onclick="startMonitor()">監視開始</button>
+	時間間隔:<input id="interval" type="number" value="0.1" step="0.1" style="width:10ex">秒
+	<button id="stopMonitor" disabled=1 onclick="stopMonitor()">中止</button>
+	<button id="changeMonitor" disabled=1 onclick="changeMonitor()">変更</button>
+	<div id="cboxes1">監視指標:
+		<input type="checkbox" name="days" checked>日&nbsp;
+		<input type="checkbox" name="asymptomatic" checked>未発症&nbsp;
+		<input type="checkbox" name="symptomatic" checked>発症&nbsp;
+		<input type="checkbox" name="recovered" checked>快復&nbsp;
+		<input type="checkbox" name="died" checked>死亡&nbsp;&nbsp;
+		<input type="checkbox" name="population">個体群の表示
+	</div>
+	Process ID: <span id="procID">---</span>
+	<div id="monitorText" width="95%" style="overflow-wrap:anywhere">
+	Received data will be shown here.</div>
+<hr/>
+<canvas id="world" width="600" height="500"
+	style="position:absolute;left:20;bottom:20"></canvas>
+</body>
+</html>

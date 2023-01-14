@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>累積感染者数／ワクチン接種数 都道府県別人口比推移</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="Tics.js"></script>
+  <script language="javascript" type="text/javascript" src="Vax3Trs.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+  <!-- This line removes any default padding and style.
+       You might only need one of these values set. -->
+  <style> body {font-family:Helvetica; text-align:center; background:#eee}
+  .subtitle {font-size:large; margin:-1pt 0 -10pt 0}
+  p {margin:1 0 1 0 !important}
+  #DateSlider {width:800px !important}
+  input {font-size:large}
+  input[type="number"] {text-align:right; width:4.5ex}
+  </style>
+</head>
+
+<body>
+  <h1>累積感染者数／ワクチン接種数<br/>
+  <div class="subtitle">
+    ３回目接種 2021/12/1〜<span id="endDate">2022/11/18</span> 都道府県別人口比推移 (千人当たり)
+  </div></h1>
+  <p><a href="https://www.soka.ac.jp/">創価大学</a>
+  <a href="https://www.soka.ac.jp/science/">理工学部</a>
+  <a href="http://www.intlab.soka.ac.jp/~unemi/Labo.html">畝見研究室</a><br/>
+  <small>
+  累積感染者数は<a href="https://covid19.mhlw.go.jp/extensions/public/index.html">
+  厚生労働省データからわかる新型コロナウイルス感染症情報</a>、<br>
+  ワクチン接種数は<a href="https://info.vrs.digital.go.jp">
+  デジタル庁ワクチン接種記録システム (VRS)</a>のデータを利用。</small></p>
+  <input id="GoButton" type="button" value="停止" onclick="clickGoButton()"/>&nbsp;
+  <label><input id="AdjustCBox" type="checkBox" checked=1 onchange="switchAdjustCBox()"/>
+  描画範囲最小値を調整</label>&nbsp;
+  <label><input id="FromDec1CBox" type="checkBox" onchange="switchAdjustCBox()"/>
+  起点以降の感染者数</label>&nbsp;
+  <label>
+  <input id="DaysDiffNum" type="number" min=0 max=99 value=7 onchange="changeDaysDiff(value)"/>
+  日前の接種数</label>
+  <label>
+  <input id="FPSNum" type="number" min=1 max=60 value=10 onchange="changeFPS(value)"/>
+  FPS</label>
+  <br/>
+  <input id="DateSlider" type="range" value="0" oninput="setDate(value)"/>
+  </body>
+</html>

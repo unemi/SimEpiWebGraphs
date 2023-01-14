@@ -1,0 +1,33 @@
+<html>
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>新型コロナ感染症動向</title>
+<style type="text/css">
+body {text-align:center;font-family:Helvetica}
+.ref {font-size:small}
+.url {font-family:courier}
+#pref {font-size:large}
+</style>
+<script type="text/javascript" src="ageRanks.js"></script>
+</head>
+<body onload="setup()">
+<h2>新型コロナ感染症動向</h2>
+<p>創価大学理工学部 畝見研究室 &nbsp;
+2023/01/12 18:12:03 <!-- Revision -->
+更新
+</p>
+<h3><select id="pref" onchange="selectPref(this.value)"></select>
+年齢層別 新規陽性患者数推移</h3>
+<div class=ref>参照データ:
+<span class=url>https://covid19.mhlw.go.jp/public/opendata/newly_confirmed_cases_detail_weekly.csv</span>
+2023/01/10 10:20:40 <!-- AgeZones -->
+</div>
+<div id="ageGraphs">
+<img src="ages_num_c/00.svg">
+<img src="ages_rate_c/00.svg">
+<img src="ages_num_r/00.svg">
+<img src="ages_rate_r/00.svg">
+</div>
+<hr/>
+</body>
+</html>

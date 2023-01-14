@@ -1,0 +1,4 @@
+#
+5 16 * * * ./SimEpidemic/DocumentRoot/unemi/updateTest/update2.sh >> /tmp/cronlog.txt 2>&1
+30 8 * * * ./SimEpidemic/DocumentRoot/unemi/Vax3Trs/update.sh >> /tmp/cronlog.txt 2>&1
+12 10,14,18,22 * * 2,3,4,5 ./SimEpidemic/DocumentRoot/unemi/AgeRanks/age.sh >> /tmp/cronlog.txt 2>&1
