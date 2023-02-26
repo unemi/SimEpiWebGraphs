@@ -1,19 +1,18 @@
 <!DOCTYPE html>
+<!-- The main HTML file for what the TITLE says.
+by Tatsuo Unemi, Soka University, Nov. 2022. -->
 <html>
 <head>
   <title>Prefectures' cumulative infection / third doses</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
-  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
   <script language="javascript" type="text/javascript" src="Tics.js"></script>
   <script language="javascript" type="text/javascript" src="Vax3TrsEn.js"></script>
-  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
-
-  <!-- This line removes any default padding and style.
-       You might only need one of these values set. -->
-  <style> body {font-family:Helvetica; text-align:center; background:#eee}
+  <script language="javascript" type="text/javascript" src="prefInfo.js"></script>
+  <script language="javascript" type="text/javascript" src="vaxPref.js"></script>
+  <script language="javascript" type="text/javascript" src="ptnPref.js"></script>
+  <style type="text/css">
+  body {font-family:Helvetica; text-align:center; background:#eee}
   .subtitle {font-size:large; margin:-1pt 0 -10pt 0}
   p {margin:1 0 1 0 !important}
   #DateSlider {width:800px !important}
@@ -21,8 +20,7 @@
   input[type="number"] {text-align:right; width:4.5ex}
   </style>
 </head>
-
-<body>
+<body onload="start()">
   <h1>Cumulative infected / Third doses<br/>
   <div class="subtitle">
     Third dose Dec 1, 2021 &mdash; <span id="endDate">2022/11/18</span>&nbsp;(per 1,000 people)
@@ -39,7 +37,7 @@
   by Ministry of Health, Labour and Welfare.<br>
   The data of third doses are from <a href="https://info.vrs.digital.go.jp">
   Vaccination Record System (VRS)</a> by Digital Agency, Japan.</small></p>
-  <input id="GoButton" type="button" value="停止" onclick="clickGoButton()"/>&nbsp;|&nbsp;
+  <input id="GoButton" type="button" value="Start" onclick="clickGoButton()"/>&nbsp;|&nbsp;
   <label><input id="AdjustCBox" type="checkBox" checked=1 onchange="switchAdjustCBox()"/>
   Adjust lower boundary</label>&nbsp;|&nbsp;
   <label><input id="FromDec1CBox" type="checkBox" onchange="switchAdjustCBox()"/>
@@ -52,5 +50,7 @@
   FPS</label>
   <br/>
   <input id="DateSlider" type="range" value="0" oninput="setDate(value)"/>
+  <br/>
+  <canvas width=800 height=600 style="width:800px;height:600px"></canvas>
   </body>
 </html>

@@ -1,7 +1,8 @@
 #! /bin/bash
+site=https://covid19.mhlw.go.jp/public/opendata
 fnm=newly_confirmed_cases_daily.csv
 fnmw=newly_confirmed_cases_weekly.csv
-./getFileIfNew.sh https://covid19.mhlw.go.jp/public/opendata/$fnm
+./getFileIfNew.sh $site/$fnm
 if [ $? -ne 0 ]; then exit; fi
 awk -F, 'NR==1{for(i=1;i<NF;i++)printf "%s,",$i;
 print substr($NF,1,length($NF)-1);
@@ -82,3 +83,18 @@ makeRegPlot 15 23 Chubu
 makeRegPlot 24 30 Kinki
 makeRegPlot 31 39 CgkSkk
 makeRegPlot 40 47 KysOknw
+#
+awk -F, 'NR>1{OFS=",";print $1,$2}' $fnmw > ../COVID19JpnTPp5/data/new_cases.csv
+fnms=severe_cases_daily.csv
+./getFileIfNew.sh $site/$fnms
+awk -F, 'NR>1{OFS=",";print $1,$2}' $fnms > ../COVID19JpnTPp5/data/severe_cases.csv
+fnmd=deaths_cumulative_daily.csv
+./getFileIfNew.sh $site/$fnmd
+awk -F, 'NR>1{OFS=",";print $1,$2}' $fnmd > ../COVID19JpnTPp5/data/deaths_cumulative.csv
+awk -F, 'NR==2{y=$2;n=idx=s=0}
+NR>2{x = $2 - y; if (x < 0) x = 0;
+if (n < 7) { nn = n + 1; s += x }
+else { nn = n; s += x - v[idx] }
+v[idx] = x; printf "%s,%.3f\n", $1, s / nn;
+idx = (idx + 1) % 7; if (n < 7) n ++; y = $2}'\
+ $fnmd > ../COVID19JpnTPp5/data/deaths_weekly.csv
