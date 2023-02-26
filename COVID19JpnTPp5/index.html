@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="COVID19JpnTPp5.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+  <!-- This line removes any default padding and style.
+       You might only need one of these values set. -->
+  <style> body { padding:0; margin:0;background:#DDD; font-family:Helvetica; text-align:center}
+  select, button { font-size:large; border:0; border-radius:0; cursor:pointer }
+  button { font-family:"Apple Color Emoji"; font-size:x-large;
+    background-color:transparent; padding:0;  }
+  .stepBtn { font-size:medium }
+  .noBreak { display:inline-block; }
+  </style>
+  <title>コロナ禍を振り返る</title>
+</head>
+<body onresize="adjustWidth()">
+<div class="leftRight">
+<div style="font-size:x-large;font-weight:bold">コロナ禍を振り返る</div>
+<div>
+<span class="noBreak" id="period"></span>
+<select id="choice" onchange="setupForData(this.value)"></select>&nbsp;
+<span class="noBreak">
+<button id="startStop" onclick="startStop()"></button>
+<button onclick="jumpToStart()">&#x23ee;</button>
+<button onclick="jumpToEnd()">&#x23ed;</button>
+</span>
+<span class="noBreak">
+<button class="stepBtn" onclick="stepBackward()">&#x25c0;</button>
+<button class="stepBtn" onclick="stepForward()">&#x25b6;</button>
+</span>
+<span class="noBreak"><input type="checkbox" id="vaccination" onchange="drawIt()" checked></input>
+<label for="vaccination">ワクチン接種数</label></span>
+</div>
+</div>
+<input id="DateSlider" type="range" value="0" list="DateTics" oninput="setDate(value)"/>
+<datalist id="DateTics"></datalist>
+<div id="caption" class="leftRight" style="font-size:small">
+<div>
+患者数推移データは<a href="https://covid19.mhlw.go.jp">厚生労働省オープンデータ</a>，
+ワクチン接種数は<a href="https://info.vrs.digital.go.jp">デジタル庁VRS</a>を引用</div>
+<div><a href="https://www.soka.ac.jp/">創価大学</a>
+  <a href="https://www.soka.ac.jp/science/">理工学部</a>
+  <a href="https://www.soka.ac.jp/science/infosys/">情報システム工学科</a>
+  <a href="http://www.intlab.soka.ac.jp/~unemi/Labo.html">畝見研究室</a></div>
+</div>
+</body>
+</html>
