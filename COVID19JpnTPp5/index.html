@@ -12,34 +12,90 @@
   <!-- This line removes any default padding and style.
        You might only need one of these values set. -->
   <style> body { padding:0; margin:0;background:#DDD; font-family:Helvetica; text-align:center}
-  select, button { font-size:large; border:0; border-radius:0; cursor:pointer }
-  button { font-family:"Apple Color Emoji"; font-size:x-large;
-    background-color:transparent; padding:0;  }
-  .stepBtn { font-size:medium }
+  select, button { font-size:large; border:0px; cursor:pointer }
+  input, label { cursor:pointer }
+  select#speed { font-size:small }
+  button { padding:0; height:30px; background-color:transparent }
+  img.button { width:24px; height:24px; margin-bottom:-6px }
   .noBreak { display:inline-block; }
+  .overHead { background:#222C; color:#FFF; z-index:10;
+    position:absolute; border:3px outset grey; text-align:left }
+  .overHead input { margin-left:10px }
+  .windowTitle { background:#666C; text-align:center }
+  .closeBtn { position:absolute; right:0pt; font-size:medium }
+  .tooltip { position:relative }
+  .tooltip-text { opacity:0; position:absolute;
+    left:50%; transform:translateX(-50%); bottom:-26px;
+    display:inline-block; padding:4px; white-space:nowrap; font-size:0.75rem;
+    line-height:1.2; background:#333C; color:#fff; transition:0.2s ease-in }
+  .tooltip:hover .tooltip-text { opacity:1; visibility:visible }
+  .appearGently { transition:opacity 0.3s ease-in }
+  #Fader { opacity:0; position:absolute; transition:opacity 1s ease-in-out }
+  #FullScrMsg { padding:1rem; font-size:x-large; background:#000C; color:white;
+    position:absolute; left:50%; top:20%; transform:translateX(-50%);
+    opacity:0; transition:opacity 1s ease-in }
   </style>
   <title>コロナ禍を振り返る</title>
 </head>
 <body onresize="adjustWidth()">
+<div id="configPanel" class="overHead" hidden=1>
+    <div class="windowTitle">表示設定
+        <button class="closeBtn" onclick="closePanel(configPanel)">&#x274C;</button>
+    </div>
+    <input type="checkbox" id="looping" onchange="switchSetups('繰り返し', this)"/>
+    <label for="looping">繰り返し再生</label><br/>
+    <input type="checkbox" id="vaccination" onchange="switchSetups('ワクチン接種', this)"/>
+    <label for="vaccination">ワクチン接種数</label><br/>
+    <label for="speed" style="margin-left:1rem">1秒あたり</label>
+    <select id="speed" onchange="changeFrameRate(int(this.value))">
+    <option value=2>2</option>
+    <option value=5>5</option>
+    <option value=10>10</option>
+    <option value=20 selected>20</option>
+    <option value=30>30</option>
+    </select>
+    <label for="speed">日分</label>
+    <div class="windowTitle">表示する出来事</div>
+</div>
 <div class="leftRight">
-<div style="font-size:x-large;font-weight:bold">コロナ禍を振り返る</div>
-<div>
-<span class="noBreak" id="period"></span>
-<select id="choice" onchange="setupForData(this.value)"></select>&nbsp;
-<span class="noBreak">
-<button id="startStop" onclick="startStop()"></button>
-<button onclick="jumpToStart()">&#x23ee;</button>
-<button onclick="jumpToEnd()">&#x23ed;</button>
-</span>
-<span class="noBreak">
-<button class="stepBtn" onclick="stepBackward()">&#x25c0;</button>
-<button class="stepBtn" onclick="stepForward()">&#x25b6;</button>
-</span>
-<span class="noBreak"><input type="checkbox" id="vaccination" onchange="drawIt()" checked></input>
-<label for="vaccination">ワクチン接種数</label></span>
+    <div style="font-size:x-large;font-weight:bold">コロナ禍を振り返る</div>
+    <div id="Controller" class="appearGently">
+        <span class="noBreak" id="period">2020/12/22〜2023/12/22</span>
+        <select id="choice" onchange="chooseIndex(this.value)"></select>&nbsp;
+        <span class="noBreak">
+            <button id="startStop" class="tooltip" onclick="startStop()">&nbsp;
+                <span id="startStopToolTip" class="tooltip-text">開始</span>
+            </button>
+            <button class="tooltip" onclick="jumpToStart()">
+              <img class="button" src="data/jumpToStart.svg"/>
+              <span class="tooltip-text">最初に戻る</span></button>
+            <button class="tooltip" onclick="jumpToEnd()">
+              <img class="button" src="data/jumpToEnd.svg"/>
+              <span class="tooltip-text">最後に移る</span></button>
+        </span>
+        <span class="noBreak">
+            <button class="tooltip" onclick="stepBackward()">
+                <img class="button" src="data/stepBackward.svg"/>
+                <span class="tooltip-text">1日戻る</span></button>
+            <button class="tooltip" onclick="stepForward()">
+                <img class="button" src="data/stepForward.svg"/>
+                <span class="tooltip-text">1日進む</span></button>
+        </span>
+        <button id="fullscreenBtn" class="tooltip" onclick="enterFullscreen()">
+          <img class="button" src="data/expand.svg"/>
+          <span class="tooltip-text">全画面表示</span></button>
+        <button class="tooltip" onclick="openPanel(configPanel)">
+          <img class="button" src="data/gear.svg"/>
+          <span class="tooltip-text"
+            style="left:100%;transform:translateX(-100%)">表示設定</span></button>
+    </div>
 </div>
+<div id="CanvasContainer">
+  <div id="Fader"></div>
+  <div id="FullScrMsg">全画面モードを終了するには[ESC]キーを押してください</div>
 </div>
-<input id="DateSlider" type="range" value="0" list="DateTics" oninput="setDate(value)"/>
+<input id="DateSlider" class="appearGently" type="range"
+ list="DateTics" oninput="setDate(value)"/>
 <datalist id="DateTics"></datalist>
 <div id="caption" class="leftRight" style="font-size:small">
 <div>
