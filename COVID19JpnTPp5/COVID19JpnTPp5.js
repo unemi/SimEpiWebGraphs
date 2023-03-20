@@ -5,19 +5,20 @@ const dataInfoList = [
   {"name":"severe_cases", "title":"重症", "comment":"", "color":"rgb(255,200,150)"},
   {"name":"deaths_weekly", "title":"死亡", "comment":" (1日当たり数の週平均)", "color":"rgb(255,160,160)"},
   {"name":"new_cases", "title":"新規陽性", "comment":" (1日当たり数の週平均)", "color":"rgb(200,255,180)"}];
-let dataInfo, dataReady, marks, fixedFont, offScrGr;
+let dataInfo, dataReady, marks, maxLenForNum, offScrGr;
 let ww = 1280, hh = 720, scl = 1.0, txtScl = 1.0, xoffset = 100, yoffset = 40, margin = 0;
 let bgColor, fgColor, textColor, axisColor, barColor, pointerColor, vaxColor;
 let tbl, newsTbl, maxYs, x = 0, eventOffset = 0.0, fading = 0;
 let vaxTbl, vaxRowCnt, vaxLastDate, vaxStartX;
 const vaxMaxY = 125.4e6;  // Population size of Japan
 let running = null, clientType, indexCirculation = false, indexShown = 0,
-  stepCnt = 0, runFrameRate = 20, xDrawn = -1, xRevised = false;
+  stepCnt = 0, runFrameRate = 20, xDrawn = -1, xRevised = false, needsRedraw = true;
 const ClientIPhone = 0, ClientAndroid = 1,
   ClientChrome = 2, ClientSafari = 3, ClientFF = 4, ClientUnknown = 5;
 const clientKeys = ["iPhone", "Android", "Chrome", "Safari", "Firefox"];
 let controller, periodSpan, fullscreenBtn;
-let theCanvas, fader, configPanel, startStopBtn, dateSlider, loopCheckBox, vaxCheckBox;
+let theCanvas, fader, graphTitle, dailyInfo, configPanel,
+  startStopBtn, dateSlider, loopCheckBox, vaxCheckBox;
 let imgPlay, imgPause;
 let cntrlOrigin, sliderOrigin, fulScrBtnOrigin, cnfgPnlOrigin;
 const newsCategories = [], newsCatColors = {};
@@ -59,13 +60,14 @@ function defaultBoolValue(name, dflt) {
   return (value == "false")? false : (value == "true")? true : dflt;
 }
 function preload() { // automatically called by p5js
-  fixedFont = loadFont("data/Courier-Bold.otf");
   newsTbl = loadTable("data/COVID19History.tsv");
   vaxTbl = loadTable("data/vax.csv");
 }
 function setup() { // automatically called by p5js
   theCanvas = document.getElementById("CanvasContainer");
   fader = document.getElementById("Fader");
+  graphTitle = document.getElementById("GraphTitle");
+  dailyInfo = document.getElementById("DailyInfo");
   periodSpan = document.getElementById("period");
   fullscreenBtn = document.getElementById("fullscreenBtn");
   configPanel = document.getElementById("configPanel");
@@ -179,6 +181,7 @@ function setup() { // automatically called by p5js
 function setupForData(idx) {
   dataReady = false;
   dataInfo = dataInfoList[idx];
+  graphTitle.textContent = "全国" + dataInfo.title + "患者数推移" + dataInfo.comment;
   tbl = loadTable("data/" + dataInfo.name + ".csv", "csv", "", setupAfterDataLoaded);
 }
 function setupAfterDataLoaded() {
@@ -221,6 +224,7 @@ function setupAfterDataLoaded() {
     while (idx < rowCnt && dt > dateToInt(tbl.getString(idx, 0))) { idx ++; }
     if (idx < rowCnt) { marks.push({"y":tbl.getNum(idx, 1), "clm":idx}); }
   }
+  maxLenForNum = numFmt.format(int(maxYs[maxYs.length - 1])).length;
   dataReady = true;
   if (running === null) { setRunning(indexCirculation && loopCheckBox.checked); }
   if (!running || fading > 0) { drawIt(); }
@@ -239,13 +243,13 @@ function draw() { // automatically called by p5js
     if ((stepCnt ++) % (60 / runFrameRate) == 0) {
       if (x < tbl.getRowCount() - 1) {
         dateSlider.value = (++ x);
-        xRevised = true;
+        xRevised = needsRedraw = true;
       } else if (loopCheckBox.checked) {
         fading = 1; frameRate(1); // stay still in one second
       } else { setRunning(false); }
     }
   } else { eventOffset = 0; }
-  drawIt();
+  if (needsRedraw) drawIt();
 }
 function drawIt() {
   push();
@@ -253,6 +257,7 @@ function drawIt() {
   image(offScrGr, 0, 0);
   const gw = ww - xoffset, gh = hh - yoffset, maxY = maxYs[x - 1];
   // events
+  textSize(24.0 * scl * txtScl);
   strokeJoin(ROUND);
   let bottom = newsIdxs.length - 1;
   for (; bottom > 0; bottom --)
@@ -263,6 +268,7 @@ function drawIt() {
   else if (eventOffset > 1.0) { eventOffset *= 30.0/31.0; }
   else if (eventOffset > 0) { eventOffset -= 1.0/30.0; }
   else if (eventOffset < 0) { eventOffset = 0; }
+  else { needsRedraw = false; }
   for (let cnt = 0; cnt <= bottom; cnt ++) {
     const y = height - (cnt + 0.3 - eventOffset) * 40 * scl;
     if (y <= 0) { break; }
@@ -289,31 +295,19 @@ function drawIt() {
     line(xr, lineY, xr, ym);
     circle(xr, ym, 11 * scl);
   }
-  // title
-  textSize(32.0 * scl * txtScl);
-  const title = "全国" + dataInfo.title + "患者数推移" + dataInfo.comment;
-  fill(textColor);
-  stroke(bgColor);
-  strokeWeight(4 * scl);
-  textAlign(CENTER);
-  text(title, width/2, 58 * scl);
-  if (x < tbl.getRowCount()) { 
-    push();
-    textFont(fixedFont);
-    textAlign(RIGHT);
-    const dt = tbl.getString(x, 0).split("/"),
-    dtStr = dt[0] + "/" + twoClmn(dt[1]) + "/" + twoClmn(dt[2]),
-    txtOx = width/2 + 5 * scl +
-      textWidth(numFmt.format(int(maxYs[maxYs.length - 1])));
-    text(dtStr, width/2 - 5 * scl, 100 * scl);
-    text(numFmt.format(int(tbl.getNum(x, 1))), txtOx, 100 * scl);
-    pop();
-    textAlign(LEFT);
-    text("人", txtOx + 3 * scl, 100 * scl);
-  }
-  pop();
 }
 function drawGr(gr) {
+  if (x < tbl.getRowCount()) {
+    const dt = tbl.getString(x, 0).split("/"),
+      numStr = numFmt.format(int(tbl.getNum(x, 1))),
+      nSpcs = maxLenForNum - numStr.length + 1;
+    let spcs = "";
+    for (let i = 0; i < nSpcs; i ++) { spcs += "\xa0"; }
+    dailyInfo.textContent =
+      dt[0] + "/" + twoClmn(dt[1]) + "/" + twoClmn(dt[2]) +
+      spcs + numStr + "人";
+  }
+  //
   gr.background(bgColor);
   if (!dataReady) { return; }
   const gw = ww - xoffset, gh = hh - yoffset, maxY = maxYs[x - 1];
@@ -445,6 +439,7 @@ function changeFrameRate(frmRt) {
 function switchSetups(name, cbox) {
   localStorage.setItem(name, cbox.checked);
   if (name == "ワクチン接種" && x > vaxStartX) drawGr(offScrGr);
+  needsRedraw = true;
   drawIt();
 }
 function setDate(value) {
@@ -455,6 +450,12 @@ function adjustScaleAndOffset() {
     scl = ww / 1280.0;
     xoffset = 100 * scl; yoffset = 40 * scl;
     adjustFaderSize();
+    graphTitle.style.top = int(20 * scl) + "px";
+    dailyInfo.style.top = int(60 * scl) + "px";
+    graphTitle.style.fontSize = dailyInfo.style.fontSize = int(32 * scl) + "px";
+    graphTitle.style.WebkitTextStroke = dailyInfo.style.WebkitTextStroke =
+      "black " + scl + "px";
+    graphTitle.style.width = ww + "px";
 }
 function adjustFaderSize() {
     fader.style.width = ww + "px";
@@ -543,5 +544,6 @@ function fullscreenChanged(event) {
     periodSpan.style.color = null;
   }
   adjustScaleAndOffset();
+  drawGr(offScrGr);
   drawIt();
 }
