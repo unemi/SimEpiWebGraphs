@@ -95,6 +95,8 @@ function setup() { // automatically called by p5js
     setupDimensionForSP();
     break;
     default:
+    if (document.fullscreenEnabled === false ||
+      document.webkitFullscreenEnabled === false) fullscreenBtn.remove();
     adjustWidth();
     document.getElementsByClassName("leftRight").forEach((x) => {
       x.style.setProperty("display", "flex");
@@ -467,6 +469,10 @@ function setupDimensionForSP() {
     hh = ww * 9.0 / 16.0;
     adjustScaleAndOffset();
 }
+function isFullScreen() {
+  return (clientType == ClientFF)?
+    (document.fullscreenElement !== null) : document.webkitIsFullScreen;
+}
 function adjustWidth() {
   switch (clientType) {
     case ClientIPhone: case ClientAndroid:
@@ -475,18 +481,28 @@ function adjustWidth() {
       dateSlider.style.width = ww + "px";
       drawIt();
       break;
-    case ClientChrome:
-      if (document.webkitIsFullScreen) return;
     default:
-      const newMargin = (document.body.offsetWidth - ww) / 2;
-      if (newMargin != margin) {
-          margin = newMargin;
-          document.getElementsByClassName("leftRight").forEach((x) => {
-            x.style.marginLeft = margin + "px";
-            x.style.width = ww + "px";
-          });
-          fader.style.left = margin + "px";
+      if (isFullScreen()) return;
+      const orgWW = ww;
+      ww = document.body.offsetWidth - 20;
+      if (ww > 1280) { ww = 1280; }
+      if (orgWW != ww) {
+        hh = ww * 9 / 16;
+        adjustScaleAndOffset();
+        resizeCanvas(ww, hh);
+        adjustFaderSize();
       }
+      const newMargin = (document.body.offsetWidth - ww) / 2;
+      if (newMargin != margin || orgWW != ww) {
+        margin = newMargin;
+        document.getElementsByClassName("leftRight").forEach((x) => {
+          x.style.marginLeft = margin + "px";
+          x.style.width = ww + "px";
+        });
+        fader.style.left = margin + "px";
+        dateSlider.style.width = ww + "px";
+      }
+      if (orgWW != ww && dataReady) { drawGr(offScrGr); drawIt(); }
   }
 }
 function enterFullscreen() {
@@ -497,13 +513,8 @@ function enterFullscreen() {
   displayWidth = screen.width;
   displayHeight = screen.height;
 }
-function isFullScreen() {
-  return (clientType == ClientFF)?
-    (document.fullscreenElement !== null) : document.webkitIsFullScreen;
-}
 function fullscreenChanged(event) {
   if (isFullScreen()) {
-// this may not work properly on MacBook Pro's screen with "Notch".
     resizeCanvas(ww = displayWidth, hh = displayHeight);
     adjustFaderSize();
     fader.style.left = 0;
@@ -528,13 +539,10 @@ function fullscreenChanged(event) {
         msg.style.opacity = "0"; clearInterval(intvl); }, 4000);
     }
   } else {
-    resizeCanvas(ww = 1280, hh = 720);
-    adjustFaderSize();
     fader.style.left = margin + "px";
     controller.onmouseenter = controller.onmouseleave = null;
     dateSlider.onmouseenter = dateSlider.onmouseleave = null;
     controller.style.position = dateSlider.style.position = null;
-    dateSlider.style.width = ww + "px";
     controller.style.opacity = dateSlider.style.opacity = "1";
     placeNode(cntrlOrigin);
     placeNode(sliderOrigin);
