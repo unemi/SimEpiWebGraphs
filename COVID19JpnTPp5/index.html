@@ -12,6 +12,7 @@
   <!-- This line removes any default padding and style.
        You might only need one of these values set. -->
   <style> body { padding:0; margin:0;background:#DDD; font-family:Helvetica; text-align:center}
+  .titleHeader { font-size:x-large; font-weight:bold }
   select, button { font-size:large; border:0px; cursor:pointer }
   input, label { cursor:pointer }
   select#speed { font-size:small }
@@ -63,7 +64,7 @@
     <div class="windowTitle">表示する出来事</div>
 </div>
 <div class="leftRight">
-    <div style="font-size:x-large;font-weight:bold">コロナ禍を振り返る</div>
+    <div class="titleHeader">コロナ禍を振り返る</div>
     <div id="Controller" class="appearGently">
         <span class="noBreak" id="period">2020/12/22〜2023/12/22</span>
         <select id="choice" onchange="chooseIndex(this.value)"></select>&nbsp;
@@ -77,8 +78,6 @@
             <button class="tooltip" onclick="jumpToEnd()">
               <img class="button" src="data/jumpToEnd.svg"/>
               <span class="tooltip-text">最後に移る</span></button>
-        </span>
-        <span class="noBreak">
             <button class="tooltip" onclick="stepBackward()">
                 <img class="button" src="data/stepBackward.svg"/>
                 <span class="tooltip-text">1日戻る</span></button>

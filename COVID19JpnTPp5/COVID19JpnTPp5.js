@@ -6,7 +6,8 @@ const dataInfoList = [
   {"name":"deaths_weekly", "title":"死亡", "comment":" (1日当たり数の週平均)", "color":"rgb(255,160,160)"},
   {"name":"new_cases", "title":"新規陽性", "comment":" (1日当たり数の週平均)", "color":"rgb(200,255,180)"}];
 let dataInfo, dataReady, marks, maxLenForNum, offScrGr;
-let ww = 1280, hh = 720, scl = 1.0, txtScl = 1.0, xoffset = 100, yoffset = 40, margin = 0;
+let ww = 1280, hh = 720, scl = 1.0, txtScl = 1.0,
+  xoffset = 100, yoffset = 40, margin = 0, normalLineHeight = 24;
 let bgColor, fgColor, textColor, axisColor, barColor, pointerColor, vaxColor;
 let tbl, newsTbl, maxYs, x = 0, eventOffset = 0.0, fading = 0;
 let vaxTbl, vaxRowCnt, vaxLastDate, vaxStartX;
@@ -85,6 +86,7 @@ function setup() { // automatically called by p5js
   cnfgPnlOrigin = nodePlace(configPanel);
   imgPlay = buttonImage("play");
   imgPause = buttonImage("pause");
+  normalLineHeight = periodSpan.offsetHeight;
 //
   const ua = window.navigator.userAgent;
   for (clientType = 0; clientType < clientKeys.length; clientType ++)
@@ -98,10 +100,6 @@ function setup() { // automatically called by p5js
     if (document.fullscreenEnabled === false ||
       document.webkitFullscreenEnabled === false) fullscreenBtn.remove();
     adjustWidth();
-    document.getElementsByClassName("leftRight").forEach((x) => {
-      x.style.setProperty("display", "flex");
-      x.style.setProperty("justify-content", "space-between");
-    });
   }
   theCanvas.appendChild(createCanvas(ww,hh).canvas);
   adjustFaderSize();
@@ -483,25 +481,30 @@ function adjustWidth() {
       break;
     default:
       if (isFullScreen()) return;
-      const orgWW = ww;
+      const orgWW = ww, orgMargin = margin;
       ww = document.body.offsetWidth - 20;
       if (ww > 1280) { ww = 1280; }
+      else if (ww < 620) { ww = 620; }
       if (orgWW != ww) {
         hh = ww * 9 / 16;
         adjustScaleAndOffset();
         resizeCanvas(ww, hh);
         adjustFaderSize();
       }
-      const newMargin = (document.body.offsetWidth - ww) / 2;
-      if (newMargin != margin || orgWW != ww) {
-        margin = newMargin;
-        document.getElementsByClassName("leftRight").forEach((x) => {
+      margin = (document.body.offsetWidth - ww) / 2;
+      const lrs = document.getElementsByClassName("leftRight");
+      if (orgMargin != margin || orgWW != ww) {
+        lrs.forEach((x) => {
+          x.style.display = "flex";
+          x.style.justifyContent = "space-between";
           x.style.marginLeft = margin + "px";
           x.style.width = ww + "px";
         });
         fader.style.left = margin + "px";
         dateSlider.style.width = ww + "px";
       }
+      if (document.getElementById("caption").offsetHeight > normalLineHeight)
+        lrs.forEach((x) => { x.style.display = x.style.justifyContent = null; });
       if (orgWW != ww && dataReady) { drawGr(offScrGr); drawIt(); }
   }
 }
