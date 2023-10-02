@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- June 13, 2023, modified Sept. 26, 2023, by T. Unemi -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="style.css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="2023.js"></script>
+<script language="javascript" type="text/javascript" src="script.js"></script>
+<title>COVID-19 都道府県別定点当たり報告数推移</title>
+</head>
+<body onload="setup()">
+<h2>COVID-19 都道府県別定点当たり報告数推移</h2>
+<table id="swTable" align="left">
+</table>
+<div id="rankBox">
+<table id="rank">
+<tr><th></th><th></th><th>最新値</th><th>前週比</th></tr>
+</table>
+<span id="sortOptions">
+<select id="orderDir" onchange="makeRanking()">
+<option>降順</option>
+<option>昇順</option>
+</select><br/>
+<select id="orderIdx" onchange="makeRanking()">
+<option>最新値</option>
+<option>前週比</option>
+<option>地域</option>
+</select><br/>
+リストの <input id="topN" type=number value=20 min=1 max=48></input>
+都道府県を <button onclick="drawTopN()">表示</button><br/>
+<button onclick="copySVG()">グラフを SVG 形式でコピー</button>
+</span>
+</div>
+<div id="info">
+参照データ: <a href="https://www.niid.go.jp/niid/ja/data.html">国立感染症研究所 IDWR速報データ</a>
+</div>
+<svg viewBox="0 0 1000 400" stroke="black" fill="none" width=90%>
+</svg>
+<br/><hr/>
+<div style="text-align:left;font-size:small">
+<a href="https://www.soka.ac.jp/">創価大学</a>
+<a href="https://www.soka.ac.jp/science/">理工学部</a>
+<a href="http://www.intlab.soka.ac.jp/~unemi/Labo.html">畝見研究室</a> 2023.</div>
+</body>
+</html>

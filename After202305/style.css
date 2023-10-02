@@ -1,0 +1,11 @@
+body {background:#eee;text-align:center;font-family:sans-serif}
+#swTable {margin:0 5%}
+#swTable td {text-align:left}
+#swTable td.btnClm {text-align:right}
+#rankBox {display:inline-block}
+#rank {display:inline-block;width:15em;height:196px;overflow-y:scroll;border:solid grey}
+#rank td {text-align:right}
+#sortOptions {display:inline-block;position:relative;left:0;top:-104px;text-align:left}
+#topN {width:3em}
+#info {margin-top:10px}
+svg {border:solid grey}
