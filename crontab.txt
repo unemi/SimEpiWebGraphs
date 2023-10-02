@@ -1,5 +1,7 @@
 #
-5 16 * * * ./SimEpidemic/DocumentRoot/unemi/updateTest/update2.sh >> /tmp/cronlog.txt 2>&1
+# 5 16 * * * ./SimEpidemic/DocumentRoot/unemi/updateTest/update2.sh >> /tmp/cronlog.txt 2>&1
 30 8 * * * ./SimEpidemic/DocumentRoot/unemi/Vax3Trs/update.sh >> /tmp/cronlog.txt 2>&1
-12 14,18 * * 3,4 ./SimEpidemic/DocumentRoot/unemi/AgeRanks/age.sh >> /tmp/cronlog.txt 2>&1
-22 14,18 * * 3,4 ./SimEpidemic/DocumentRoot/unemi/AgeRanksDeath/age.sh >> /tmp/cronlog.txt 2>&1
+# 12 14,18 * * 3,4 ./SimEpidemic/DocumentRoot/unemi/AgeRanks/age.sh >> /tmp/cronlog.txt 2>&1
+# 22 14,18 * * 3,4 ./SimEpidemic/DocumentRoot/unemi/AgeRanksDeath/age.sh >> /tmp/cronlog.txt 2>&1
+9 10 * * 2 ./SimEpidemic/DocumentRoot/unemi/After202305/update.sh >> /tmp/cronlog.txt 2>&1
+25 14 * * 5 ./SimEpidemic/DocumentRoot/unemi/After202305/updateByMHLW.sh >> /tmp/cronlog.txt 2>&1

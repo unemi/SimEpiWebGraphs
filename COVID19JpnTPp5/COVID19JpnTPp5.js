@@ -15,8 +15,8 @@ const vaxMaxY = 125.4e6;  // Population size of Japan
 let running = null, clientType, indexCirculation = false, indexShown = 0,
   stepCnt = 0, runFrameRate = 20, xDrawn = -1, xRevised = false, needsRedraw = true;
 const ClientIPhone = 0, ClientAndroid = 1,
-  ClientChrome = 2, ClientSafari = 3, ClientFF = 4, ClientUnknown = 5;
-const clientKeys = ["iPhone", "Android", "Chrome", "Safari", "Firefox"];
+  ClientEdg = 2, ClientChrome = 3, ClientSafari = 4, ClientFF = 5, ClientUnknown = 6;
+const clientKeys = ["iPhone", "Android", "Edg", "Chrome", "Safari", "Firefox"];
 let controller, periodSpan, fullscreenBtn;
 let theCanvas, fader, graphTitle, dailyInfo, configPanel,
   startStopBtn, dateSlider, loopCheckBox, vaxCheckBox;
@@ -104,7 +104,7 @@ function setup() { // automatically called by p5js
   theCanvas.appendChild(createCanvas(ww,hh).canvas);
   adjustFaderSize();
   switch (clientType) {
-    case ClientChrome: case ClientSafari:
+    case ClientEdg: case ClientChrome: case ClientSafari:
       theCanvas.onwebkitfullscreenchange = fullscreenChanged; break;
     case ClientFF: theCanvas.onfullscreenchange = fullscreenChanged; break;
   }
@@ -492,19 +492,19 @@ function adjustWidth() {
         adjustFaderSize();
       }
       margin = (document.body.offsetWidth - ww) / 2;
-      const lrs = document.getElementsByClassName("leftRight");
       if (orgMargin != margin || orgWW != ww) {
+        const lrs = document.getElementsByClassName("leftRight");
         lrs.forEach((x) => {
           x.style.display = "flex";
           x.style.justifyContent = "space-between";
           x.style.marginLeft = margin + "px";
           x.style.width = ww + "px";
         });
+        if (document.getElementById("caption").offsetHeight > normalLineHeight)
+          lrs.forEach((x) => { x.style.display = x.style.justifyContent = null; });
         fader.style.left = margin + "px";
         dateSlider.style.width = ww + "px";
       }
-      if (document.getElementById("caption").offsetHeight > normalLineHeight)
-        lrs.forEach((x) => { x.style.display = x.style.justifyContent = null; });
       if (orgWW != ww && dataReady) { drawGr(offScrGr); drawIt(); }
   }
 }
@@ -515,6 +515,13 @@ function enterFullscreen() {
   else { alert("お使いのブラウザが全画面モードに対応していないようです。"); return; }
   displayWidth = screen.width;
   displayHeight = screen.height;
+}
+let fullScrMsg = null, fullScrMsgTimer = null;
+function clearFullSctMsgTimer() {
+    const intvl = fullScrMsgTimer;
+    fullScrMsgTimer = null;
+    clearInterval(intvl);
+    fullScrMsg.style.opacity = "0";
 }
 function fullscreenChanged(event) {
   if (isFullScreen()) {
@@ -535,11 +542,14 @@ function fullscreenChanged(event) {
     theCanvas.insertBefore(configPanel, theCanvas.firstChild);
     theCanvas.appendChild(controller);
     theCanvas.appendChild(dateSlider);
-    if (clientType == ClientSafari) {
-      const msg = document.getElementById("FullScrMsg");
-      msg.style.opacity = "1";
-      const intvl = setInterval(() => {
-        msg.style.opacity = "0"; clearInterval(intvl); }, 4000);
+    if (clientType == ClientEdg || clientType == ClientSafari) {
+      fullScrMsg = document.getElementById("FullScrMsg");
+      fullScrMsg.style.transition = null;
+      fullScrMsg.style.opacity = "1";
+      fullScrMsg.style.visibility = "visible";
+      fullScrMsgTimer = setInterval(() => {
+        fullScrMsg.style.transition = "opacity 1s ease-in"
+        clearFullSctMsgTimer(); }, 4000);
     }
   } else {
     fader.style.left = margin + "px";
@@ -553,6 +563,10 @@ function fullscreenChanged(event) {
     placeNode(cnfgPnlOrigin);
     closePanel(configPanel);
     periodSpan.style.color = null;
+    if (fullScrMsgTimer != null) {
+      fullScrMsg.style.transition = null;
+      clearFullSctMsgTimer();
+    }
   }
   adjustScaleAndOffset();
   drawGr(offScrGr);
